@@ -11,7 +11,7 @@ Requirements
 - MeCab with IPADIC (e.g. `brew install mecab mecab-ipadic`)
 
 Installation
-----
+------------
 
 ::
 
