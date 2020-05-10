@@ -1,2 +1,1 @@
-mecab
-mecab-python3
+natto-py
