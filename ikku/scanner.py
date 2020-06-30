@@ -35,8 +35,8 @@ class Scanner:
             return True
 
     def first_of_phrase(self):
-        return self.__count in [sum(self.__rule[:i+1]) for i in range(len(self.__rule))]
-    
+        return self.__count in [sum(self.__rule[:i + 1]) for i in range(len(self.__rule))]
+
     def has_full_count(self):
         return self.__count == sum(self.__rule)
 
@@ -47,11 +47,11 @@ class Scanner:
         return self.__phrases[-1][-1].last_of_ikku()
 
     def max_consumable_length(self):
-        return sum(self.__rule[:self.phrase_index()+1]) - self.__count
+        return sum(self.__rule[:self.phrase_index() + 1]) - self.__count
 
     def phrase_index(self):
         for i in range(len(self.__rule)):
-            if self.__count < sum(self.__rule[:i+1]):
+            if self.__count < sum(self.__rule[:i + 1]):
                 return i
         return len(self.__rule) - 1
 

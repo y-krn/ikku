@@ -1,8 +1,9 @@
 from .parser import Parser
 from .song import Song
 
+
 class Reviewer:
-    def __init__(self, rule = []):
+    def __init__(self, rule=[]):
         self.__parser = Parser()
         self.__rule = rule
 
@@ -11,7 +12,7 @@ class Reviewer:
     def find(self, text):
         nodes = self.__parser.parse(text)
         for i in range(len(nodes)):
-            song = Song(nodes[i:], exactly = False, rule = self.__rule)
+            song = Song(nodes[i:], exactly=False, rule=self.__rule)
             if song.valid():
                 return song
         return None
@@ -19,7 +20,7 @@ class Reviewer:
     # Judge if given text is valid song or not.
     # @return [true, false]
     def judge(self, text):
-        return Song(self.__parser.parse(text), exactly = True, rule = self.__rule).valid()
+        return Song(self.__parser.parse(text), exactly=True, rule=self.__rule).valid()
 
     # Search all valid songs from given text.
     # @return [Array<Array>]
@@ -27,7 +28,7 @@ class Reviewer:
         nodes = self.__parser.parse(text)
         results = []
         for i in range(len(nodes)):
-            song = Song(nodes[i:], exactly = False, rule = self.__rule)
+            song = Song(nodes[i:], exactly=False, rule=self.__rule)
             if song.valid():
                 results.append(song)
         return results

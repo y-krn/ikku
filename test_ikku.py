@@ -4,6 +4,7 @@ import unittest
 from ikku.reviewer import Reviewer
 from ikku.song import Song
 
+
 class TestIkku(unittest.TestCase):
 
     def test_find_judge(self):
@@ -36,7 +37,7 @@ class TestIkku(unittest.TestCase):
         reviewer = Reviewer()
 
         text = '古池や蛙飛び込む水の音'
-        
+
         # with rule option and valid song
         self.assertTrue(reviewer.judge(text))
 
@@ -71,14 +72,14 @@ class TestIkku(unittest.TestCase):
         # with song ending with サ変・スル in 連用形 (-し)
         self.assertFalse(reviewer.judge('炊きつけて画面眺めて満足し'))
 
-        reviewer = Reviewer([4,3,5])
+        reviewer = Reviewer([4, 3, 5])
 
         # with rule option and valid song
         self.assertTrue(reviewer.judge('すもももももももものうち'))
 
         # with rule option and invalid song
         self.assertFalse(reviewer.judge(text))
- 
+
     def test_reviewer_search(self):
         reviewer = Reviewer()
 
@@ -92,6 +93,7 @@ class TestIkku(unittest.TestCase):
 
         # with text including song
         self.assertIsInstance(reviewer.search('ああ' + text + 'ああ'), list)
+
 
 if __name__ == '__main__':
     unittest.main()

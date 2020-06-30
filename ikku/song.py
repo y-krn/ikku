@@ -3,11 +3,12 @@ from .scanner import Scanner
 from .bracket_state import BracketState
 import itertools
 
+
 class Song:
 
     DEFAULT_RULE = [5, 7, 5]
 
-    def __init__(self, nodes, exactly = False, rule = []):
+    def __init__(self, nodes, exactly=False, rule=[]):
         self.exactly = exactly
         self.__nodes = nodes
         self.__rule = rule or self.DEFAULT_RULE

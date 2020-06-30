@@ -1,7 +1,8 @@
 import re
 
+
 class Node:
-    
+
     def __init__(self, surface, feature, stat):
         self.STAT_ID_FOR_NORMAL = 0
         self.STAT_ID_FOR_UNKNOWN = 1
@@ -34,7 +35,7 @@ class Node:
     def first_of_ikku(self):
         if not self.first_of_phrase():
             return False
-        if self.type == "記号" and not self.subtype1 in ["括弧開", "括弧閉"]:
+        if self.type == "記号" and self.subtype1 not in ["括弧開", "括弧閉"]:
             return False
         return True
 
@@ -76,10 +77,10 @@ class Node:
 
     def pronunciation_length(self):
         return len(self.pronunciation_mora())
-        
+
     def pronunciation_mora(self):
         if not self.pronunciation == '':
-            pronunciation = re.sub("[ぁ-ゔ]","[ァ-ヴ]",self.pronunciation)
+            pronunciation = re.sub("[ぁ-ゔ]", "[ァ-ヴ]", self.pronunciation)
             pronunciation = re.sub("[^アイウエオカ-モヤユヨラ-ロワヲンヴー]", "", pronunciation)
             return pronunciation
         else:
@@ -88,7 +89,7 @@ class Node:
     @property
     def root_form(self):
         return self.__feature[6]
- 
+
     @property
     def stat(self):
         return self.__stat

@@ -1,6 +1,6 @@
 from natto import MeCab
 from .node import Node
-import os
+
 
 class Parser:
     def parse(self, text):
