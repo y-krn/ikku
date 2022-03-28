@@ -19,7 +19,7 @@ pip install ikku
 Reviewer is the main interface for this library.
 
 ```python
-from ikku import Reviwer
+from ikku import Reviewer
 reviewer = Reviewer()
 ```
 
